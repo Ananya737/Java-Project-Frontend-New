@@ -1,0 +1,99 @@
+/* Login.css */
+
+
+
+/* Container */
+.loginCon {
+  width: 100%;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+
+
+/* Inputs */
+#loginBtn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00adb5;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#loginName {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background-color: rgb(220, 217, 217);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+#loginPass {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background-color: rgb(220, 217, 217);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Button */
+.regBtn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00adb5;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.regBtn:hover {
+  background-color: #009ba1;
+}
+
+/* Message */
+p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ffcccb;
+}
+
+/* Optional button like "Forgot Password?" */
+.forgotBtn {
+  background-color: #444;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.forgotBtn:hover {
+  background-color: #333;
+}

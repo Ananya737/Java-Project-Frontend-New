@@ -1,0 +1,106 @@
+
+body{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.wholeProductsContainer{
+  display: flex;
+  justify-content: center;
+  gap: 3%;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+#card{
+  text-decoration: none;
+}
+.eachProductContainer{
+  margin-top: 3%;
+  width: 200px;
+  height: 338px;
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 6px;
+}
+.imgContainer{
+  width: 100%;
+  border-radius: 6px;
+}
+.imgContainer img{
+  width:100%;
+  height: 200px;
+  border-radius: 6px 6px 0px 0px;
+}
+.cardProductName{
+  font-size: 12px;
+  width: 240px;
+  height: auto;
+  text-align:justify;
+  font-weight: 500;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px ;
+}
+.productDetails{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -10px;
+
+}
+#productPrice{
+  font-size: 20px;
+  color: green;
+}
+#ProductMrp{
+  font-size: 11px;
+  color: rgb(77, 76, 76);
+  text-decoration: line-through;
+}
+#price{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#rating{
+  font-size: 12px;
+  padding-right: 5px;
+}
+#freeDelivery{
+  font-size: 11px;
+  text-align: start;
+  padding-left: 10px;
+  color: green;
+  margin-top: -10px;
+}
+#addToCart{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 174, 239);
+  border-radius: 0px 0px 6px 6px;
+  color: white;
+  padding-bottom: 5.5px;
+  padding-top: 5.5px;
+  width: 100%;
+  cursor: pointer;
+  
+}
+
+
+
+
+
+.bannerImg1{
+  height: 100%;
+  width: 100%;
+}
+.bannerImg2{
+  height: 560px;
+  width: 100%;
+}
+.bannerImg3{
+  height: 560px;
+  width: 100%
+}

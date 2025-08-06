@@ -1,0 +1,405 @@
+#btnContainer{
+margin-top: 5%;
+margin-bottom: 10%;
+width: 40%;
+border: 1px solid grey;
+height: 200px;
+display: flex;
+justify-content: center;
+text-decoration: none;
+align-items: center;
+gap: 5%;
+background-color: #162e64;
+border: 2px solid rgb(37, 37, 103);
+border-radius: 10px;
+}
+.link{
+text-decoration: none;
+font-size: 25px;
+color: aliceblue;
+border: 2px solid rgb(37, 37, 103);
+border-radius: 10px;
+padding: 3%;
+background-color: white;
+}
+#adminDashboard{
+    display: flex;
+    justify-content: center;
+}
+#message{
+    font-size: 20px;
+    color: red;
+}
+#wholeAdminContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logoutBtn{
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Form Container */
+form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  max-width: 500px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #5e72e4;
+  outline: none;
+}
+
+/* Button Styling */
+.addProductBtn {
+  background-color: #5e72e4;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.addProductBtn:hover {
+  background-color: #324cdd;
+}
+
+/* Message */
+p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Product List Styling */
+h2 {
+  color: #333;
+}
+
+.product-list {
+  margin-top: 30px;
+}
+
+.product-list div {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+.adminProductCard{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    height: 300px;
+    padding: 2%;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+.adminProductCardContainer{
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    flex-wrap: wrap;
+}
+.productPageHeading{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.admin-orders-container {
+  padding: 20px;
+}
+
+.orders-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.order-card {
+  border: 2px solid rgb(161, 160, 160);
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+  width: 25%;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.order-card select {
+  margin-left: 10px;
+}
+
+.order-image {
+  width: 100px;
+  height: auto;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.delete-btn:hover{
+   background: rgb(160, 49, 49);
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  color: #333;
+}
+
+.active-page {
+  font-weight: bold;
+  background-color: #ddd;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .orders-grid {
+    justify-content: center;
+  }
+
+  .order-card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 425px) {
+  .admin-orders-container {
+    padding: 10px;
+  }
+
+  .order-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .order-image {
+    width: 80px;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------ Responsive Styling for Dashboard ------------------ */
+@media (max-width: 1024px) {
+  #wholeAdminContainer {
+    padding: 30px 20px;
+    align-items: center;
+  }
+
+  #adminDashboard {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  #message {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #btnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .link {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .logoutBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #adminDashboard {
+    font-size: 24px;
+  }
+
+  #message {
+    font-size: 16px;
+  }
+
+  .link {
+    font-size: 15px;
+  }
+
+ .logoutBtn {
+    display: none;
+  }
+}
+
+
+
+
+/* Existing logoutBtn position */
+.logoutBtn {
+  position: absolute;
+  top: 2%;
+  right: 3%;
+  border-radius: 10px;
+  padding: 10px 15px;
+  background-color: #5e72e4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.logoutBtn:hover {
+  background-color: #324cdd;
+}
+
+/* Tablet and mobile responsive styles */
+@media (max-width: 1024px) {
+  form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  .adminProductCard {
+    width: 40%;
+    height: auto;
+  }
+
+
+}
+
+@media (max-width: 600px) {
+  form {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    padding: 15px;
+  }
+
+  .adminProductCard {
+    width: 90%;
+    margin: auto;
+    height: auto;
+  }
+
+
+
+  .productPageHeading {
+    font-size: 20px;
+  }
+
+  .addProductBtn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="file"] {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
