@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import oip2 from '../assets/banner10.png'
-import oip3 from '../assets/image.png'
-import vision from '../assets/banner8.jpg'
+import one from '../Carousel Img/one.png'
+import two from '../Carousel Img/two.png'
+import three from '../Carousel Img/three.png'
+import Carousel from 'react-bootstrap/Carousel';
 import '../HomePage.css';
 import API from './api';
 
-export default function HomePage() {
+export default function HomePage({products,msg}) {
 
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  const [msg,setMsg]=useState("");
+  const [message,setMessage]=useState("");
 
-  useEffect(() => {
-    fetchProducts();
+  // useEffect(() => {
+  //   fetchProducts();
     
-  }, []);
+  // }, []);
 
-  const fetchProducts = async () => {
-    try {
-      const res = await axios.get("http://localhost:8080/user/products");
-      setProducts(res.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  // const fetchProducts = async () => {
+  //   try {
+  //     const res = await axios.get("http://localhost:8080/user/products");
+  //     setProducts(res.data);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
 
   const addToCart = async (productId) => {
@@ -41,8 +42,8 @@ export default function HomePage() {
       }
     });
 
-    setMsg("✅ Product added to cart!");
-    alert(msg)
+    setMessage("✅ Product added to cart!");
+    alert(message)
 
     // ✅ Fetch latest cart count after adding
     const res = await API.get("/api/cart/count", {
@@ -56,7 +57,7 @@ export default function HomePage() {
 
   } catch (err) {
     console.error(err);
-    setMsg("❌ Error adding to cart");
+    setMessage("❌ Error adding to cart");
   }
 };
 
@@ -71,37 +72,58 @@ export default function HomePage() {
     }
 
     addToCart(productId);
+    
   };
 
   return (
-    <div className="container mt-4">
-      {/* Carousel */}
-      {/* <div id="carouselExample" className="carousel slide mb-5" data-bs-ride="carousel">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src={oip2} className='bannerImg1'
-               alt="Slide 1"/>
-          </div>
-          <div className="carousel-item">
-            <img src={oip3} className='bannerImg2'
-               alt="Slide 2"/>
-          </div>
-          <div className="carousel-item">
-            <img src={vision} className='bannerImg3'
-               alt="Slide 3"/>
-          </div>
-        </div>
-        
-        <button className="carousel-control-prev" type="button"
-                data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon"></span>
-        </button>
-        <button className="carousel-control-next" type="button"
-                data-bs-target="#carouselExample" data-bs-slide="next">
-          <span className="carousel-control-next-icon"></span>
-        </button>
-      </div> */}
 
+
+    <div className="container mt-4" >
+
+     <section >
+
+     <Carousel style={{width:"100%",marginTop:"80px"}}>
+      <Carousel.Item style={{width:"100%",height:"550px"}}>
+       <img src={one} alt="First Slide" style={{width:"100%",height:"100%",
+        display: "block"}}/>
+        {/* <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption> */}
+      </Carousel.Item>
+      <Carousel.Item style={{width:"100%",height:"550px"}}>
+       <img src={two} alt="First Slide" style={{width:"100%", height:"100%",
+        display: "block"}}/>
+        {/* <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption> */}
+      </Carousel.Item>
+      <Carousel.Item style={{width:"100%",height:"550px"}}>
+        <img src={three} alt="First Slide" style={{width:"100%",height:"100%",
+        display: "block"}}/>
+        {/* <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption> */}
+      </Carousel.Item>
+    </Carousel>
+
+</section >
+
+
+
+    {/* <section id='sec2'>
+      <h2>Shop By Category</h2>
+
+       <div className='category-card'>
+        <img src="" alt="" />
+        <p>Category name</p>
+        <button>Shop now</button>
+       </div>
+    </section> */}
 
 
 
@@ -113,12 +135,14 @@ export default function HomePage() {
 
 
       
-
+<p  id='searchMsg'>{msg}</p>
       
    {/* Products */}
       
+      
 
        <div className='wholeProductsContainer'>
+        
           
           {products.map((product)=>{
            

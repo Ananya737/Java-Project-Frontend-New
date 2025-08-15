@@ -80,12 +80,25 @@ function App() {
         },
       });
       setProducts(res.data);
+      if(res.data.length===0){
+        setMsg(`No product found for "${searchTerm}"`)
+      }else{
       setMsg(`Showing results for "${searchTerm}"`);
+      
+      }
     } catch (err) {
       console.error(err);
       setMsg("Error searching products");
     }
   };
+
+
+  const clearSearch=()=>{
+    setSearchTerm("");
+    setMsg("");
+    fetchProducts();
+  }
+
 
   // ✅ Logout function
   const handleLogout = () => {
@@ -140,8 +153,10 @@ function App() {
                   </a>
                   <ul className="dropdown-menu dropdown-menu-end">
                     <li><button className="dropdown-item" onClick={handleLogout}>Logout</button></li>
+                    
                   </ul>
                 </li>
+                
               )}
 
             </ul>
@@ -153,7 +168,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
 <div className='header-container'>
 
@@ -184,6 +199,7 @@ function App() {
         value={searchTerm}
         placeholder="Search products..."/>
         <button onClick={searchProducts}><IoMdSearch  id='searchIconForButton'/> Search</button>
+        <button onClick={clearSearch} id='clearBtn'>Clear</button>
     </div>
 
     {/* 🔹 Cart & Profile Icons */}
@@ -196,7 +212,7 @@ function App() {
 
       {username ? (
           <>
-            <li className="nav-item dropdown" style={{ listStyle: 'none' }}>
+          {/* <li className="nav-item dropdown" style={{ listStyle: 'none' }}>
           <a
             className="nav-link dropdown-toggle"
             href="#"
@@ -223,11 +239,22 @@ function App() {
                 Logout
               </button>
             </li>
+           
           </ul>
-        </li>
+        </li> */}
+
+        <div style={{display:"flex",gap:"5px"}} id='userIcon'> <i className="fas fa-user"></i> 
+        {username}  
+         <div id='sideBar'>
+          <p onClick={handleLogout} id='logoutBtn'>Logout</p>
+
+        </div>
+        </div>
+
+       
+
           </>
-        
-      
+
       ):(
         <>
         <div className='regAndLoginBtn'>
@@ -258,7 +285,7 @@ function App() {
 
       <div className="container mt-4">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage products={products} msg={msg} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={
           <Login setCartCount={setCartCount} setUsername={setUsername} />
@@ -276,8 +303,8 @@ function App() {
       </div>
 
 
-      {msg && <p>{msg}</p>}
-      {products.length === 0 && <p>No products found.</p>}
+      
+      {/* {products.length === 0 && <p>No products found.</p>}
 
       <div className="productContainer">
         {products.map((p) => (
@@ -290,7 +317,7 @@ function App() {
             <button >Add to Cart</button>
           </div>
         ))}
-      </div>
+      </div> */}
 
     
         
