@@ -18,6 +18,11 @@ import AdminOrders from './pages/AdminOrders';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { IoMdSearch } from "react-icons/io";
+import { MdLogout } from "react-icons/md";
+import { FaRegHeart } from "react-icons/fa";
+import { IoIosHelpCircleOutline } from "react-icons/io";
+
+
 
 function Footer() {
   return (
@@ -212,42 +217,19 @@ function App() {
 
       {username ? (
           <>
-          {/* <li className="nav-item dropdown" style={{ listStyle: 'none' }}>
-          <a
-            className="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+         
 
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '5px',
-              cursor: 'pointer',
-            }}
-          >
-            <i
-              className="fas fa-user"
-            ></i>
-            {username}
-          </a>
-
-          <ul className="dropdown-menu dropdown-menu-end">
-            <li>
-              <button className="dropdown-item" onClick={handleLogout}>
-                Logout
-              </button>
-            </li>
-           
-          </ul>
-        </li> */}
-
-        <div style={{display:"flex",gap:"5px"}} id='userIcon'> <i className="fas fa-user"></i> 
+        <div style={{display:"flex",gap:"5px"}} id='userIcon'> <i className="fas fa-user" ></i> 
         {username}  
          <div id='sideBar'>
-          <p onClick={handleLogout} id='logoutBtn'>Logout</p>
-
+          <div id='sideBarMenu'>
+          <p id='myProfile'>< i className="fas fa-user" ></i> Profile</p>
+          <p id='myOrders'><i className="fas fa-shopping-cart"></i> <Link to="/orders" id='myOrdersLink'>Orders</Link></p>
+          <p id='wishlist'><FaRegHeart id='wishlistIcon' /> Wishlist</p>
+          <p id='help'> <IoIosHelpCircleOutline id='helpIcon' /> Help</p>
+          {/* <p>FAQs</p> */}
+          <p onClick={handleLogout} id='logoutBtn'><MdLogout style={{color:"rgb(0, 174, 239)",fontSize:"17px"}}/> Logout</p>
+          </div>
         </div>
         </div>
 

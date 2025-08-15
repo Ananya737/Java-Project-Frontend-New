@@ -95,6 +95,8 @@ body{
   position: relative;
 }
 #sideBar{
+  border-top: 1px solid  rgb(0, 174, 239);
+
   display: none;
   /* position: absolute;
   right: 0;
@@ -102,8 +104,9 @@ body{
   background: white;
   padding: 8px;
   width: 200px;
-  height: 300px;
-  border-radius: 6px;
+  height: 270px;
+  /* border-radius: 6px; */
+  /* margin-top: 2px; */
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 #userIcon:hover #sideBar,#sideBar:hover{
@@ -112,11 +115,103 @@ body{
   right: 0%;
   top: 105%;
 }
-#logoutBtn{
+#sideBarMenu{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 10px;
+}
+#myProfile{
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-weight: 400;
   color: rgb(77, 76, 76);
   font-size: 13px;
+  border-bottom: 1px solid rgb(205, 202, 202);
+  text-align: start;
+  width: 100%;
+  padding-bottom: 15px;
+  cursor: pointer;
+
 }
+#myProfile i{
+  border: 2px solid rgb(0, 174, 239);
+  border-radius: 50%;
+  font-size: 11px;
+  padding: 2px 3px 2px 3px;
+}
+#myOrders{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 400;
+  color: rgb(77, 76, 76);
+  font-size: 13px;
+  border-bottom: 1px solid rgb(205, 202, 202);
+  text-align: start;
+  width: 100%;
+  padding-bottom: 15px;
+}
+#myOrdersLink{
+  text-decoration: none;
+  color: rgb(77, 76, 76);
+  font-size: 13px;
+  
+}
+#myOrders i{
+  font-size: 15px;
+}
+#wishlist{
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-weight: 400;
+  color: rgb(77, 76, 76);
+  font-size: 13px;
+  border-bottom: 1px solid rgb(205, 202, 202);
+  text-align: start;
+  width: 100%;
+  padding-bottom: 15px;
+  cursor: pointer;
+}
+#wishlistIcon{
+  font-size: 15px;
+  color: rgb(0, 174, 239);
+}
+#help{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 400;
+  color: rgb(77, 76, 76);
+  font-size: 13px;
+  border-bottom: 1px solid rgb(205, 202, 202);
+  text-align: start;
+  width: 100%;
+  padding-bottom: 15px;
+  cursor: pointer;
+}
+#helpIcon{
+  font-size: 17px;
+  color: rgb(0, 174, 239);
+} 
+#logoutBtn{
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-weight: 400;
+  color: rgb(77, 76, 76);
+  font-size: 13px;
+  cursor: pointer;
+  /* border-bottom: 1px solid rgb(205, 202, 202); */
+  text-align: start;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+
 
 
 
