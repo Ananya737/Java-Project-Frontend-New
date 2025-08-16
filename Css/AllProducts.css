@@ -1,0 +1,54 @@
+
+
+#allProductsContainer{
+    margin-top: 8%;
+}
+#msg{
+    color: green;
+    font-size: 12px;
+}
+#wholeProductsContainer{
+  display: flex;
+  justify-content: center;
+  gap: 3%;
+  flex-wrap: wrap;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+#sortFeature{
+    width: 195px;
+    height: 30px;
+    border: 1px solid rgb(220, 218, 218);
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    /* margin-top: 10%; */
+    cursor: pointer;
+}
+#dropdown{
+    font-size: 11px;
+    margin-top: 3%;
+    margin-right: 3%;
+    color: grey;
+}
+#sortFeature p{
+    font-size: 11px;
+    font-weight: 400;
+    display: flex;
+    justify-content: start;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+#sortFeatureOptions{
+    width: 195px;
+    height: 80px;
+    background-color: white;
+    border: 1px solid rgb(220, 218, 218);
+    display: none;
+    position: absolute;
+    top: 20.5%;
+    left: 13.3%;
+}
+#sortFeature:hover #sortFeatureOptions{
+    display: block;
+}

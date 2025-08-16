@@ -1,6 +1,6 @@
 // App.jsx
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import API from './pages/api';
 import logoImg from '../src/assets/logoImg.png'
 import "../src/App.css"
@@ -21,6 +21,8 @@ import { IoMdSearch } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { IoIosHelpCircleOutline } from "react-icons/io";
+import AllProducts from './pages/AllProducts';
+import Sort from './pages/Sort';
 
 
 
@@ -40,6 +42,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
   const [msg, setMsg] = useState("");
+  const navigate=useNavigate();
 
 
  useEffect(() => {
@@ -85,6 +88,7 @@ function App() {
         },
       });
       setProducts(res.data);
+      navigate("/allProducts");
       if(res.data.length===0){
         setMsg(`No product found for "${searchTerm}"`)
       }else{
@@ -102,6 +106,7 @@ function App() {
     setSearchTerm("");
     setMsg("");
     fetchProducts();
+    // navigate("/");
   }
 
 
@@ -113,67 +118,11 @@ function App() {
     window.location.href = "/login"; // Or use navigate
   };
 
-  // ✅ Navbar component inside App
-  function Navbar() {
-    return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <Link className="navbar-brand" to="/" id='logo'>Bookoholic</Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav" aria-controls="navbarNav"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-
-              {/* ✅ Show Register/Login if NOT logged in */}
-              {!username && (
-                <>
-                  <li className="nav-item"><Link className="nav-link" to="/register">Register</Link></li>
-                  <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
-                </>
-              )}
-
-              <li className="nav-item"><Link className="nav-link" to="/products">Show Products</Link></li>
-
-              <li className="nav-item">
-                <Link className="nav-link" to="/cart">
-                  <i className="fas fa-shopping-cart"></i> Cart
-                  {cartCount > 0 && (
-                    <span className="badge bg-danger ms-1">{cartCount}</span>
-                  )}
-                </Link>
-              </li>
-
-              <li className="nav-item"><Link className="nav-link" to="/orders">Track Orders</Link></li>
-
-              {/* ✅ Show dropdown if logged in */}
-              {username && (
-                <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    {username}
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-end">
-                    <li><button className="dropdown-item" onClick={handleLogout}>Logout</button></li>
-                    
-                  </ul>
-                </li>
-                
-              )}
-
-            </ul>
-          </div>
-        </div>
-      </nav>
-    );
-  }
+  
 
   return (
     <>
-      {/* <Navbar /> */}
+      
 
 <div className='header-container'>
 
@@ -252,7 +201,7 @@ function App() {
 
   {/* 🔷 Bottom Category Bar */}
   <div className='categoryBar'>
-    <a href="#" >All Products </a>
+    <Link to="/allProducts">All Products</Link>
     <a href="#" >Yoga Essentials </a>
     <a href="#" >Wellness Products </a>
     <a href="#" >Skin Care and Beauty </a>
@@ -267,12 +216,14 @@ function App() {
 
       <div className="container mt-4">
         <Routes>
-          <Route path="/" element={<HomePage products={products} msg={msg} />} />
+          <Route path="/" element={<HomePage  />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={
           <Login setCartCount={setCartCount} setUsername={setUsername} />
           } />
+          <Route path='/allProducts' element={<AllProducts products={products} msg={msg} />}/>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/sort/:order" element={<Sort />} />
           <Route path="/product" element={<ProductForm />} />
           <Route path="/products" element={<VProducts />} />
           <Route path="/cart" element={<Cart setCartCount={setCartCount} />} />
@@ -286,20 +237,7 @@ function App() {
 
 
       
-      {/* {products.length === 0 && <p>No products found.</p>}
-
-      <div className="productContainer">
-        {products.map((p) => (
-          <div className="products" key={p.id}>
-            
-            <img src={p.imageUrl} alt={p.name} width="200" />
-            <h3>{p.name}</h3>
-            <p>Price: ₹{p.price}</p>
-            <p>Category: {p.category}</p>
-            <button >Add to Cart</button>
-          </div>
-        ))}
-      </div> */}
+      
 
     
         

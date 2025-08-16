@@ -1,35 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import one from '../Carousel Img/one.png'
-import two from '../Carousel Img/two.png'
-import three from '../Carousel Img/three.png'
-import Carousel from 'react-bootstrap/Carousel';
-import '../HomePage.css';
-import API from './api';
+import { Link } from "react-router-dom"
+import "../Css/AllProducts.css"
+import { useState } from "react";
+import API from "./api";
+import { FaChevronDown } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-export default function HomePage() {
 
-  const [products, setProducts] = useState([]);
-  const [message,setMessage]=useState("");
 
-  useEffect(() => {
-    fetchProducts();
+const AllProducts=({products,msg})=>{
+    const [message,setMessage]=useState("");
+    // const [products, setProducts] = useState([]);
+    const navigate=useNavigate();
     
-  }, []);
 
-  const fetchProducts = async () => {
+
+
+    const addToCart = async (productId) => {
     try {
-      const res = await axios.get("http://localhost:8080/user/products");
-      setProducts(res.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-
-  const addToCart = async (productId) => {
-  try {
     const username = localStorage.getItem("username");
 
     // Add product to cart
@@ -60,8 +47,6 @@ export default function HomePage() {
   }
 };
 
-
-
     const handleAddToCart = (productId) => {
     const username = localStorage.getItem("username");
     if (!username) {
@@ -74,43 +59,30 @@ export default function HomePage() {
     
   };
 
-  return (
 
 
-    <div className="container mt-4" >
-
-     <section >
-
-     <Carousel style={{width:"100%",marginTop:"80px"}}>
-
-      <Carousel.Item style={{width:"100%",height:"550px"}}>
-       <img src={one} alt="First Slide" style={{width:"100%",height:"100%",
-        display: "block"}}/>
-      </Carousel.Item>
-
-      <Carousel.Item style={{width:"100%",height:"550px"}}>
-       <img src={two} alt="First Slide" style={{width:"100%", height:"100%",
-        display: "block"}}/>
-      </Carousel.Item>
-
-      <Carousel.Item style={{width:"100%",height:"550px"}}>
-        <img src={three} alt="First Slide" style={{width:"100%",height:"100%",
-        display: "block"}}/>
-      </Carousel.Item>
-
-    </Carousel>
-
-</section >
-
-
-
-{/* <p  id='searchMsg'>{msg}</p> */}
+     const navigateToSort=(order)=>{
+        navigate(`/sort/${order}`);
+     }
+  
       
-   {/* Products */}
-      
-      
+    return(
+        <>
+        <div id="allProductsContainer">
+        <p id="msg">{msg}</p>
 
-       <div className='wholeProductsContainer'>
+        <div id="sortFeature">
+            <p>Sort by</p>
+            <FaChevronDown id="dropdown" />
+        <div id="sortFeatureOptions">
+         <p onClick={()=>{navigateToSort("asc")}}>Ascending</p>
+         <p onClick={()=>{navigateToSort("desc")}}>Descending</p>
+        </div>
+        </div>
+        
+
+       
+        <div id='wholeProductsContainer'>
         
           
           {products.map((product)=>{
@@ -146,8 +118,9 @@ export default function HomePage() {
           })}
 
        </div>
-
-
-    </div>
-  );
+       </div>
+        
+        </>
+    )
 }
+export default AllProducts;

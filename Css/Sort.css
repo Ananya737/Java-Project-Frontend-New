@@ -1,0 +1,10 @@
+
+#wholeSortProductsContainer{
+  display: flex;
+  justify-content: center;
+  gap: 3%;
+  flex-wrap: wrap;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 8%;
+}
